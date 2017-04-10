@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import {Colors} from '../Common';
 
 let Styles = StyleSheet.create({
+
   registrationPrompt: {
     fontSize: 30,
     color: Colors.TEXT

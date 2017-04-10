@@ -34,7 +34,7 @@ class WelcomeSceneComponent extends Component {
           </View>
 
           <View style={CommonStyles.headerRight}>
-            <Text style={CommonStyles.headerRightText}>May 22-26 2017</Text>
+            <Text style={CommonStyles.headerRightText}>May{'\n'}22-26{'\n'}2017</Text>
           </View>
         </View>
 

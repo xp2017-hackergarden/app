@@ -22,15 +22,19 @@ class WelcomeSceneComponent extends Component {
 
         <View style={CommonStyles.headerContent}>
 
-          <Image
-            style={CommonStyles.headerLogo}
-            source={require('../Resources/img/xp-logo.png')}
-          />
+          <View style={CommonStyles.headerLeft}>
+            <Image
+              style={CommonStyles.headerLogo}
+              source={require('../Resources/img/xp-logo.png')}
+            />
+          </View>
+
           <View style={CommonStyles.headerCenter}>
             <Text style={CommonStyles.headerCenterText}>Welcome to xp 2017</Text>
           </View>
+
           <View style={CommonStyles.headerRight}>
-            <Text>May 22-26,2017</Text>
+            <Text style={CommonStyles.headerRightText}>May 22-26 2017</Text>
           </View>
         </View>
 
@@ -48,7 +52,10 @@ class WelcomeSceneComponent extends Component {
             color={Colors.PRIMARY}
             accessibilityLabel="Press this button to register"
           />
-          <Text style={Styles.registrationPrompt}>Version: {versionNumber}</Text>
+
+        </View>
+        <View style={CommonStyles.footerContent}>
+          <Text>Version: {versionNumber}</Text>
         </View>
       </View>
     );

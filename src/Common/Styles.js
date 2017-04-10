@@ -18,35 +18,47 @@ let Styles = StyleSheet.create({
   mainContent: {
     paddingHorizontal: 20,
     flex: 10,
+    justifyContent: 'center',
   },
   headerContent: {
     backgroundColor: Colors.PRIMARY,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    padding: 5,
   },
   headerLogo: {
-    flex: 2,
+    flex: 1,
     width: null,
     height: null,
     resizeMode: 'contain',
+
+  },
+  headerLeft: {
+    flex: 3,
   },
   headerCenter: {
-    flex: 5,
+    flex: 8,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  headerCenterText:{
-    fontSize: 30,
+  headerCenterText: {
+    fontSize: 20,
     color: Colors.TEXT
   },
   headerRight: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  headerRightText: {
+    fontSize: 13,
+    color: Colors.HEADLINE,
+    textAlign: 'right'
+  },
+  footerContent: {}
 });
 
 export default Styles;

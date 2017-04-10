@@ -4,7 +4,7 @@ import {Colors} from '../Common';
 let Styles = StyleSheet.create({
   registrationPrompt: {
     fontSize: 30,
-    color: Colors.PRIMARY
+    color: Colors.TEXT
   },
   registrationInput: {
     fontSize: 30,

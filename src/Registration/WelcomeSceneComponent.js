@@ -16,11 +16,11 @@ class WelcomeSceneComponent extends Component {
   }
 
   _onRegister() {
-    //this.props.register(this.state.name);
+    this.props.register(this.state.email);
   }
 
   _onLogin() {
-    //this.props.register(this.state.name);
+    this.props.login(this.state.email, this.state.password);
   }
 
   _toggleHidePassword() {

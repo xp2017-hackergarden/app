@@ -10,6 +10,8 @@ export default function registration(state = initialState, action) {
       return state.merge({name: action.name});
     case HomeActionTypes.UNREGISTER:
       return state.delete('name');
+    case ActionTypes.STORE_EMAIL_TO_STATE:
+      return state.merge({email: action.email});
     default:
       return state;
   }

@@ -5,8 +5,8 @@ import WelcomeSceneComponent from './WelcomeSceneComponent';
 let mapStateToProps = () => ({});
 
 let mapDispatchToProps = dispatch => ({
-  register: name => dispatch(Actions.register(name)),
-  login: name => dispatch(Actions.register(name))
+  register: email => dispatch(Actions.registerEmail(email)),
+  login: name => dispatch(Actions.handleLogin(name))
 
 });
 

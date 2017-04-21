@@ -18,7 +18,6 @@ let Actions = {
 
     return axios.post(API_PREFIX + 'users/', data).then(
       function(response){
-        console.log(response, 'Response')
         dispatch(that.storeEmailToState(email));
         ToastAndroid.showWithGravity('Email has been sent to ' + email + '.', ToastAndroid.SHORT, ToastAndroid.CENTER)
         return dispatch(navigationActions.jumpTo('registrationScene'));
@@ -28,9 +27,6 @@ let Actions = {
       if(error.response.data.detail =='Email address already registered.'){
         ToastAndroid.showWithGravity(error.response.data.detail, ToastAndroid.SHORT, ToastAndroid.CENTER);
       }
-      console.log('Server call fail.');
-      console.log(error);
-      console.log(error.response.data.detail, 'ERROR')
       return 'Server call failed';
     });
   },

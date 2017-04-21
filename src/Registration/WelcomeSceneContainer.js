@@ -6,7 +6,7 @@ let mapStateToProps = () => ({});
 
 let mapDispatchToProps = dispatch => ({
   register: email => dispatch(Actions.registerEmail(email)),
-  login: name => dispatch(Actions.handleLogin(name))
+  login: (name, password) => dispatch(Actions.handleLogin(name, password))
 
 });
 

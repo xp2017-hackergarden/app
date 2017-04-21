@@ -5,7 +5,7 @@ import Styles from './HomeSceneStyles';
 
 let HomeSceneComponent = props => (
   <View style={CommonStyles.contentContainer}>
-    <Text style={Styles.welcomeText}>Welcome, {props.name}!</Text>
+    <Text style={Styles.welcomeText}>Welcome, {props.email}!</Text>
     <Button
       onPress={props.unregister}
       title="Unregister"

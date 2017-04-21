@@ -20,7 +20,8 @@ let Actions = {
       function(response){
         console.log(response, 'Response')
         dispatch(that.storeEmailToState(email));
-        return dispatch(navigationActions.jumpTo('homeScene'));
+        ToastAndroid.showWithGravity('Email has been sent to ' + email + '.', ToastAndroid.SHORT, ToastAndroid.CENTER)
+        return dispatch(navigationActions.jumpTo('registrationScene'));
 
       }
     ).catch(function(error){
@@ -48,20 +49,28 @@ let Actions = {
   },
   handleLogin:function(email, password){
     const that = this;
-    return async function(dispatch, getState){
-      let token = getState().registration.token;
-      return await that.login(email, password, token);
+    return async function(dispatch){
+      return await that.login(email, password, dispatch);
     };
   },
-  login: function(email, password){
+  login: function(email, password, dispatch){
     const that = this;
     const data = new FormData();
-    data.append('email', email);
+    data.append('username', email);
     data.append('password', password);
-    return axios.post(API_PREFIX + 'users', data
+    return axios.post(API_PREFIX + 'obtain_token/', data
     ).then(
-      function (response, dispatch) {
+      function (response) {
+        dispatch(that.storeTokenTostate(response.data.response))
         dispatch(navigationActions.jumpTo('homeScene'));
+      }
+    ).catch(
+      function(error){
+        if(error && error.response.data.response ==='User does not exist'){
+          ToastAndroid.showWithGravity('User does not exist', ToastAndroid.SHORT, ToastAndroid.CENTER);
+        } else if(error && error.response.data.response ==='Wrong password') {
+          ToastAndroid.showWithGravity('Wrong password', ToastAndroid.SHORT, ToastAndroid.CENTER);
+        }
       }
     );
     

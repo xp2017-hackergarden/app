@@ -12,6 +12,8 @@ export default function registration(state = initialState, action) {
       return state.delete('name');
     case ActionTypes.STORE_EMAIL_TO_STATE:
       return state.merge({email: action.email});
+    case ActionTypes.STORE_TOKEN_TO_STATE:
+      return state.merge({token: action.token});
     default:
       return state;
   }

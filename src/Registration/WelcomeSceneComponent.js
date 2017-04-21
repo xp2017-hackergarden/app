@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Button, Image, Switch, TextInput} from 'react-native';
+import {View, Text, Button, Image, Switch, TextInput, ToastAndroid} from 'react-native';
 import {Colors, Styles as CommonStyles, Config} from '../Common';
 import CheckBox from 'react-native-check-box';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -29,7 +29,13 @@ class WelcomeSceneComponent extends Component {
     });
 
   }
-
+  _validateEmail = (email) => {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  };
+  _nonValidatedEmail(){
+    ToastAndroid.showWithGravity('Enter valid email address', ToastAndroid.SHORT, ToastAndroid.CENTER);
+  }
   render() {
     let versionNumber = Config.VERSION;
 
@@ -39,6 +45,19 @@ class WelcomeSceneComponent extends Component {
         onChangeText={(email) => this.setState({email})}
         value={this.state.email}/>;
 
+    let validated = this._validateEmail(this.state.email) ?
+      <Button
+        onPress={this._onRegister.bind(this)}
+        title="Register"
+        color={Colors.PRIMARY}
+        accessibilityLabel="Press this button to Register"
+      />
+      :
+      <Button
+        onPress={this._nonValidatedEmail}
+        title="Register"
+        color={Colors.PRIMARY}
+      />
     let loginOrRegister = this.state.login ?
       <View>
 
@@ -71,12 +90,7 @@ class WelcomeSceneComponent extends Component {
 
         { emailInput }
 
-        <Button
-          onPress={this._onRegister.bind(this)}
-          title="Register"
-          color={Colors.PRIMARY}
-          accessibilityLabel="Press this button to Register"
-        />
+        {validated}
       </View>;
 
     return (
@@ -126,6 +140,9 @@ class WelcomeSceneComponent extends Component {
   }
 }
 
-WelcomeSceneComponent.propTypes = {};
+WelcomeSceneComponent.propTypes = {
+  register: React.PropTypes.func.isRequired,
+  login: React.PropTypes.func.isRequired
+};
 
 export default WelcomeSceneComponent;

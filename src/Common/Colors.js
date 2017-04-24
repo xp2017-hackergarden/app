@@ -3,7 +3,8 @@ let Colors = {
   TEXT: '#000000',
   HEADLINE: '#5b5b5b',
   LINK: '#47a6aa',
-  LINK_HOVER: this.PRIMARY
+  LINK_HOVER: this.PRIMARY,
+  DISABLED: 'red'
 };
 
 export default Colors;

@@ -18,7 +18,17 @@ let Styles = StyleSheet.create({
   mainContent: {
     paddingHorizontal: 20,
     flex: 10,
+
+  },
+  LoginRegisterSwitch: {
+    alignItems: 'center',
+    height: 120,
+    flexDirection: 'row',
     justifyContent: 'center',
+  },
+  LoginRegisterText: {
+    fontSize: 20,
+    padding: 10
   },
   headerContent: {
     backgroundColor: Colors.PRIMARY,
@@ -57,6 +67,9 @@ let Styles = StyleSheet.create({
     fontSize: 13,
     color: Colors.HEADLINE,
     textAlign: 'right'
+  },
+  checkBox: {
+    paddingBottom: 15
   },
   footerContent: {}
 });

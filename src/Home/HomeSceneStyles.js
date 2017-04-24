@@ -3,7 +3,7 @@ import {Colors} from '../Common';
 
 let Styles = StyleSheet.create({
   welcomeText: {
-    fontSize: 30,
+    fontSize: 20,
     color: Colors.PRIMARY
   }
 });

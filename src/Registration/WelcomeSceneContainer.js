@@ -6,8 +6,7 @@ let mapStateToProps = () => ({});
 
 let mapDispatchToProps = dispatch => ({
   register: email => dispatch(Actions.registerEmail(email)),
-  login: (name, password) => dispatch(Actions.handleLogin(name, password))
-
+  login: (name, password, deviceToken) => dispatch(Actions.handleLogin(name, password, deviceToken))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WelcomeSceneComponent);

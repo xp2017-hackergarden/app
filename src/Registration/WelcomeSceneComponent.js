@@ -3,6 +3,7 @@ import {View, Text, Button, Image, Switch, TextInput, ToastAndroid} from 'react-
 import {Colors, Styles as CommonStyles, Config} from '../Common';
 import CheckBox from 'react-native-check-box';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import FCM from 'react-native-fcm';
 
 class WelcomeSceneComponent extends Component {
   constructor(props) {
@@ -12,15 +13,23 @@ class WelcomeSceneComponent extends Component {
       password: '',
       login: true,
       hidePassword: true,
+      deviceToken: ''
     };
   }
+  componentDidMount(){
 
+    FCM.getFCMToken().then(token => {
+      this.setState({
+        deviceToken: token
+      });
+    });
+  }
   _onRegister() {
     this.props.register(this.state.email);
   }
 
   _onLogin() {
-    this.props.login(this.state.email, this.state.password);
+    this.props.login(this.state.email, this.state.password, this.state.deviceToken);
   }
 
   _toggleHidePassword() {
@@ -142,7 +151,8 @@ class WelcomeSceneComponent extends Component {
 
 WelcomeSceneComponent.propTypes = {
   register: React.PropTypes.func.isRequired,
-  login: React.PropTypes.func.isRequired
+  login: React.PropTypes.func.isRequired,
+  storeFcmToken: React.PropTypes.func.isRequired
 };
 
 export default WelcomeSceneComponent;

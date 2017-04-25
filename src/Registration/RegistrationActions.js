@@ -30,53 +30,50 @@ let Actions = {
       return 'Server call failed';
     });
   },
-  storeEmailError:function (errorData) {
-    return{
-      type: ActionTypes.STORE_EMAIL_ERROR,
-      errorData: errorData
-    }
 
-  },
   storeEmailToState: function(email) {
     return {
       type: ActionTypes.STORE_EMAIL_TO_STATE,
       email: email
     };
   },
-  handleLogin:function(email, password){
+  handleLogin:function(email, password, deviceToken){
     const that = this;
     return async function(dispatch){
-      return await that.login(email, password, dispatch);
+      return await that.login(email, password, deviceToken, dispatch);
     };
   },
-  login: function(email, password, dispatch){
+  login: function(email, password,deviceToken, dispatch){
     const that = this;
     const data = new FormData();
     data.append('username', email);
     data.append('password', password);
-    return axios.post(API_PREFIX + 'obtain_token/', data
+    data.append('fcm_registration_id', deviceToken)
+    return axios.post(API_PREFIX + 'activate_mobile_app/', data
     ).then(
       function (response) {
-        dispatch(that.storeTokenTostate(response.data.response))
+        dispatch(that.storeTokenToState(response.data.response))
         dispatch(navigationActions.jumpTo('homeScene'));
       }
     ).catch(
       function(error){
-        if(error && error.response.data.response ==='User does not exist'){
+        if(error && error.response.data.response === 'User does not exist'){
           ToastAndroid.showWithGravity('User does not exist', ToastAndroid.SHORT, ToastAndroid.CENTER);
-        } else if(error && error.response.data.response ==='Wrong password') {
+        } else if(error && error.response.data.response === 'Wrong password') {
           ToastAndroid.showWithGravity('Wrong password', ToastAndroid.SHORT, ToastAndroid.CENTER);
+        } else if(error && error.response.data.response === 'Could not save FCM token') {
+          ToastAndroid.showWithGravity('Could not activate the app', ToastAndroid.SHORT, ToastAndroid.CENTER);
         }
       }
     );
     
   },
-  storeTokenTostate: function(token){
+  storeTokenToState: function(token){
     return{
       type: ActionTypes.STORE_TOKEN_TO_STATE,
-      token: token
+      registrationToken: token
     };
-  }
+  },
 };
 
 export default Actions;

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "762756766095",
+    "firebase_url": "https://xpapp-cd146.firebaseio.com",
+    "project_id": "xpapp-cd146",
+    "storage_bucket": "xpapp-cd146.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762756766095:android:ba4319757add8a06",
+        "android_client_info": {
+          "package_name": "com.xpapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762756766095-6r5mn2caggv3gfmi903b6vj3n7bp6tob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1HPZ7tVUayYqFMl26imL09QwIkyIMwqY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

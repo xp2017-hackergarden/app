@@ -49,7 +49,7 @@ let Actions = {
     data.append('username', email);
     data.append('password', password);
     data.append('fcm_registration_id', deviceToken)
-    return axios.post(API_PREFIX + 'activate_mobile_app/', data
+    return axios.post(API_PREFIX + 'activate-mobile-app/', data
     ).then(
       function (response) {
         dispatch(that.storeTokenToState(response.data.response))

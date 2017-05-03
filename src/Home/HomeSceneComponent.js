@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, AsyncStorage} from 'react-native';
 import {Styles as CommonStyles, Colors} from '../Common';
 import Styles from './HomeSceneStyles';
 
@@ -8,10 +8,11 @@ class HomeSceneComponent extends Component {
     super(props);
 
   }
-  render(){
-    return(
+
+  render() {
+    return (
       <View style={CommonStyles.contentContainer}>
-        <Text style={Styles.welcomeText}>Welcome, {this.props.email}!</Text>
+        <Text style={Styles.welcomeText}>Welcome!</Text>
         <Button
           onPress={this.props.unregister}
           title="Unregister"

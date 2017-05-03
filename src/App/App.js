@@ -8,18 +8,13 @@ import Constants from '../AppNavigation/AppNavigationConstants';
 
 export default class App extends Component {
   componentWillMount() {
-    AsyncStorage.getItem('registration').then((value) => {
+    AsyncStorage.getItem('authToken').then((value) => {
       if (value) {
-        console.log('got the token!')
         this.setState({
-          authToken: JSON.parse(value.authToken)
+          authToken: value.authToken
         });
-        // jump to home page!
         Store.dispatch(navigationActions.jumpTo(Constants.HOME_SCENE));
-
       } else {
-        // jump to login
-        console.log("do this!")
         Store.dispatch(navigationActions.jumpTo(Constants.REGISTRATION_SCENE));
       }
     });

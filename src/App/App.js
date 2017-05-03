@@ -8,10 +8,10 @@ import Constants from '../AppNavigation/AppNavigationConstants';
 
 export default class App extends Component {
   componentWillMount() {
-    AsyncStorage.getItem('authToken').then((value) => {
+    this.loadToken().then((value) => {
       if (value) {
         this.setState({
-          authToken: value.authToken
+          authToken: JSON.parse(value).value
         });
         Store.dispatch(navigationActions.jumpTo(Constants.HOME_SCENE));
       } else {

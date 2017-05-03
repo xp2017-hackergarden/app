@@ -13,7 +13,7 @@ let initialState = {
   index: 0,
   routes: [
     {
-      key: Constants.REGISTRATION_SCENE
+      key: Constants.SPLASH_SCENE
     }
   ]
 };
@@ -23,7 +23,7 @@ export default function appNavigation(state = initialState, action) {
     case ActionTypes.JUMP_TO:
       return NavigationStateUtils.reset(state, [{key: action.key}], 0);
     case HomeActionTypes.UNREGISTER:
-      return initialState;
+      return NavigationStateUtils.reset(state, [{key: Constants.REGISTRATION_SCENE}], 0);
     case RegistrationActionTypes.REGISTER:
       return NavigationStateUtils.reset(state, [{key: Constants.HOME_SCENE}], 0);
     default:

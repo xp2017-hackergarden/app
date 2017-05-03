@@ -17,7 +17,6 @@ class WelcomeSceneComponent extends Component {
     };
   }
   componentDidMount(){
-
     FCM.getFCMToken().then(token => {
       this.setState({
         deviceToken: token
@@ -151,7 +150,7 @@ class WelcomeSceneComponent extends Component {
 
 WelcomeSceneComponent.propTypes = {
   register: React.PropTypes.func.isRequired,
-  login: React.PropTypes.func.isRequired
+  login: React.PropTypes.func.isRequired,
 };
 
 export default WelcomeSceneComponent;

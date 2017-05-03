@@ -77,7 +77,7 @@ let Actions = {
   },
   storeTokenToStorage: function(token){
     return AsyncStorage.setItem('authToken', JSON.stringify({
-      authToken: token
+      value: token
     }));
   }
 };

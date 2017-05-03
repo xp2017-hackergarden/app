@@ -2,7 +2,7 @@ import ActionTypes from './RegistrationActionTypes';
 import * as axios from 'axios';
 const API_PREFIX = 'https://cclz-xpserver.herokuapp.com/api/';
 import navigationActions from '../AppNavigation/AppNavigationActions';
-import {ToastAndroid} from 'react-native';
+import {ToastAndroid, AsyncStorage} from 'react-native';
 
 let Actions = {
   registerEmail: function(email){
@@ -53,6 +53,7 @@ let Actions = {
     ).then(
       function (response) {
         dispatch(that.storeTokenToState(response.data.response))
+        that.storeTokenToStorage(response.data.response)
         dispatch(navigationActions.jumpTo('homeScene'));
       }
     ).catch(
@@ -74,6 +75,11 @@ let Actions = {
       registrationToken: token
     };
   },
+  storeTokenToStorage: function(token){
+    return AsyncStorage.setItem('authToken', JSON.stringify({
+      authToken: token
+    }));
+  }
 };
 
 export default Actions;

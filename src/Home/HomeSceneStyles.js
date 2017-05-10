@@ -3,6 +3,7 @@ import {Colors} from '../Common';
 
 let Styles = StyleSheet.create({
   welcomeText: {
+    textAlign: 'center',
     fontSize: 20,
     color: Colors.PRIMARY
   }

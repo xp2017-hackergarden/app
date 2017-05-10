@@ -72,6 +72,12 @@ let Styles = StyleSheet.create({
     paddingBottom: 15
   },
   footerContent: {}
+  ,
+  splash: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
 
 export default Styles;

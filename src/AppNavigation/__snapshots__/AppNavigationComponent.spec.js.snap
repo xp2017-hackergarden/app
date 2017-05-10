@@ -91,11 +91,11 @@ exports[`AppNavigationComponent renders correctly for home 1`] = `
               Object {
                 "color": "#bfd730",
                 "fontSize": 20,
+                "textAlign": "center",
               }
             }
           >
-            Welcome, 
-            !
+            Welcome!
           </Text>
           <View
             accessibilityComponentType="button"

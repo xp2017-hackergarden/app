@@ -16,8 +16,7 @@ describe('AppNavigationComponent', () => {
         }
       ]
     };
-    let tree = renderer.create(<Provider store={Store}><AppNavigationComponent navigationState={navigationState} /></Provider>
-    ).toJSON();
+    let tree = renderer.create(<Provider store={Store}><AppNavigationComponent navigationState={navigationState} /></Provider>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -30,8 +29,7 @@ describe('AppNavigationComponent', () => {
         }
       ]
     };
-    let tree = renderer.create(<Provider store={Store}><AppNavigationComponent navigationState={navigationState} /></Provider>
-    ).toJSON();
+    let tree = renderer.create(<Provider store={Store}><AppNavigationComponent navigationState={navigationState} /></Provider>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

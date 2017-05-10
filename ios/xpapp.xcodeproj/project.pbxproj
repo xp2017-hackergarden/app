@@ -46,6 +46,7 @@
 		F321917871144362B0ACEE70 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4F3FA4994944247996F07F7 /* Octicons.ttf */; };
 		05561B8F6B1547A69191B12C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6E799CF18DE42B79ECCFA4E /* SimpleLineIcons.ttf */; };
 		3277BB0C199D4839BD6535FC /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1AE100A6DCB41A1837ABE7F /* Zocial.ttf */; };
+		F3ED3A72AACB4AC49170A8A3 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5086F49CF03419486B64DE8 /* libRNFIRMessaging.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,6 +278,8 @@
 		E4F3FA4994944247996F07F7 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E6E799CF18DE42B79ECCFA4E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		F1AE100A6DCB41A1837ABE7F /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1E8229CD5DCB48629BF5579C /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; name = "RNFIRMessaging.xcodeproj"; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C5086F49CF03419486B64DE8 /* libRNFIRMessaging.a */ = {isa = PBXFileReference; name = "libRNFIRMessaging.a"; path = "libRNFIRMessaging.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +307,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				C2B7D36C9ED640B0BF4FBA4C /* libRNVectorIcons.a in Frameworks */,
+				F3ED3A72AACB4AC49170A8A3 /* libRNFIRMessaging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +475,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				AA7D07323317423E869FFCD5 /* RNVectorIcons.xcodeproj */,
+				1E8229CD5DCB48629BF5579C /* RNFIRMessaging.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1032,6 +1037,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 			};
 			name = Debug;
@@ -1057,6 +1063,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 			};
 			name = Release;
@@ -1079,6 +1086,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 			};
 			name = Debug;
@@ -1100,6 +1108,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 			};
 			name = Release;
@@ -1134,6 +1143,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 			};
 			name = Debug;
@@ -1168,6 +1178,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 			};
 			name = Release;

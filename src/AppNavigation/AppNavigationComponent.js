@@ -4,6 +4,7 @@ import Constants from './AppNavigationConstants';
 import Home from '../Home';
 import Registration from '../Registration';
 import Styles from './AppNavigationStyles';
+import Splash from '../Splash';
 
 let {
   CardStack: NavigationCardStack,
@@ -21,7 +22,7 @@ class AppNavigation extends Component {
         sceneContent = <Home />;
         break;
       default:
-        sceneContent = <Registration />;
+        sceneContent = <Splash />;
     }
     return sceneContent;
   }

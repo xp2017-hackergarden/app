@@ -3,6 +3,18 @@ machine:
     version: 6.1.0
   pre:
     - npm install -g npm@3.x.x
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+dependencies:
+  override:
+    - yarn
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  override:
+    - yarn test
 
 checkout:
   post:

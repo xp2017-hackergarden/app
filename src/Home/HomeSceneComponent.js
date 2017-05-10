@@ -8,9 +8,7 @@ class HomeSceneComponent extends Component {
     super(props);
 
   }
-  componentWillMount(){
-    console.log(this.state,'STATE1')
-  }
+
   render() {
     return (
       <View style={CommonStyles.contentContainer}>

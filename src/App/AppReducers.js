@@ -4,5 +4,6 @@ import home from '../Home/HomeReducer';
 
 export {
   appNavigation,
-  registration
+  registration,
+  home
 };

@@ -3,7 +3,7 @@ import Actions from './HomeActions';
 import WelcomeSceneComponent from './HomeSceneComponent';
 
 let mapStateToProps = state => ({
-  email: state.getIn(['registration', 'email'])
+  email: state.registration.email
 });
 
 let mapDispatchToProps = dispatch => ({

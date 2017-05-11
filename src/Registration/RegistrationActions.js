@@ -1,6 +1,6 @@
 import ActionTypes from './RegistrationActionTypes';
 import * as axios from 'axios';
-const API_PREFIX = 'https://cclz-xpserver.herokuapp.com/api/';
+const API_PREFIX = 'https://app.xp2017.org/api/';
 import navigationActions from '../AppNavigation/AppNavigationActions';
 import {ToastAndroid, AsyncStorage} from 'react-native';
 

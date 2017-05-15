@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
-import {View, Text, Button, AsyncStorage} from 'react-native';
+import {View, Button} from 'react-native';
 import {Styles as CommonStyles, Colors} from '../Common';
-import Styles from './HomeSceneStyles';
+import styled from 'styled-components/native';
+
+const WelcomeText = styled.Text`
+    text-align: center;
+    fontSize: 20;
+    color: ${Colors.PRIMARY}
+    `;
+
 
 class HomeSceneComponent extends Component {
   constructor(props) {
@@ -12,7 +19,7 @@ class HomeSceneComponent extends Component {
   render() {
     return (
       <View style={CommonStyles.contentContainer}>
-        <Text style={Styles.welcomeText}>Welcome!</Text>
+        <WelcomeText>Welcome!</WelcomeText>
         <Button
           onPress={this.props.unregister}
           title="Unregister"

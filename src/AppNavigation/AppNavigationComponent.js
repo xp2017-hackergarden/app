@@ -21,8 +21,11 @@ class AppNavigation extends Component {
       case Constants.HOME_SCENE:
         sceneContent = <Home />;
         break;
-      default:
+      case Constants.SPLASH_SCENE:
         sceneContent = <Splash />;
+        break;
+      default:
+        sceneContent = <Home />;
     }
     return sceneContent;
   }

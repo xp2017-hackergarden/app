@@ -88,11 +88,14 @@ exports[`AppNavigationComponent renders correctly for home 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
-              Object {
-                "color": "#bfd730",
-                "fontSize": 20,
-                "textAlign": "center",
-              }
+              Array [
+                Object {
+                  "color": "#bfd730",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                },
+                undefined,
+              ]
             }
           >
             Welcome!

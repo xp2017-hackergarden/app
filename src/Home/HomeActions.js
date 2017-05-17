@@ -1,9 +1,10 @@
-import ActionTypes from './HomeActionTypes';
+import navigationActions from '../AppNavigation/AppNavigationActions';
+import Constants from '../AppNavigation/AppNavigationConstants';
 
 let Actions = {
-  unregister: () => ({
-    type: ActionTypes.UNREGISTER
-  })
-};
+  logout: function (dispatch) {
+    return dispatch(navigationActions.jumpTo(Constants.REGISTRATION_SCENE));
 
+  }
+}
 export default Actions;

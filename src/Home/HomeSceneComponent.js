@@ -23,10 +23,10 @@ class HomeSceneComponent extends Component {
       <View style={CommonStyles.contentContainer}>
         <WelcomeText>Welcome{"\n"}{this.props.email}</WelcomeText>
         <Button
-          onPress={this.props.unregister}
-          title="Unregister"
+          onPress={this.props.logout}
+          title="Logout"
           color={Colors.PRIMARY}
-          accessibilityLabel="Press this button to unregister"
+          accessibilityLabel="Press this button to logout"
         />
       </View>
     );
@@ -35,7 +35,7 @@ class HomeSceneComponent extends Component {
 
 HomeSceneComponent.propTypes = {
   email: React.PropTypes.string,
-  unregister: React.PropTypes.func.isRequired
+  logout: React.PropTypes.func.isRequired
 };
 
 export default HomeSceneComponent;

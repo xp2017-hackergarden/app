@@ -7,7 +7,7 @@ let mapStateToProps = state => ({
 });
 
 let mapDispatchToProps = dispatch => ({
-  unregister: () => dispatch(Actions.unregister())
+  logout: () => dispatch(Actions.logout)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeSceneComponent);

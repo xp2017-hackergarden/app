@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import navigationActions from '../AppNavigation/AppNavigationActions';
 import {ToastAndroid, AsyncStorage} from 'react-native';
 import {Config} from '../Common';
+import Constants from '../AppNavigation/AppNavigationConstants';
 
 let Actions = {
   registerEmail: function (email) {
@@ -54,7 +55,7 @@ let Actions = {
         dispatch(that.storeTokenToState(response.data.response))
         that.storeTokenToStorage(response.data.response)
         dispatch(that.storeEmailToState(email));
-        dispatch(navigationActions.jumpTo('homeScene'));
+        dispatch(navigationActions.jumpTo(Constants.HOME_SCENE));
       }
     ).catch(
       function (error) {

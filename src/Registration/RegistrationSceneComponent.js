@@ -5,7 +5,7 @@ import CheckBox from 'react-native-check-box';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FCM from 'react-native-fcm';
 
-class WelcomeSceneComponent extends Component {
+class RegistrationSceneComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -148,9 +148,9 @@ class WelcomeSceneComponent extends Component {
   }
 }
 
-WelcomeSceneComponent.propTypes = {
+RegistrationSceneComponent.propTypes = {
   register: React.PropTypes.func.isRequired,
   login: React.PropTypes.func.isRequired,
 };
 
-export default WelcomeSceneComponent;
+export default RegistrationSceneComponent;

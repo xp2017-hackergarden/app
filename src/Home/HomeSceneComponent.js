@@ -21,7 +21,7 @@ class HomeSceneComponent extends Component {
   render() {
     return (
       <View style={CommonStyles.contentContainer}>
-        <WelcomeText>Welcome!{this.props.email}</WelcomeText>
+        <WelcomeText>Welcome{"\n"}{this.props.email}</WelcomeText>
         <Button
           onPress={this.props.unregister}
           title="Unregister"

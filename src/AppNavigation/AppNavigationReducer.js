@@ -24,8 +24,9 @@ export default function appNavigation(state = initialState, action) {
       return NavigationStateUtils.reset(state, [{key: action.key}], 0);
     case HomeActionTypes.UNREGISTER:
       return NavigationStateUtils.reset(state, [{key: Constants.REGISTRATION_SCENE}], 0);
-    case RegistrationActionTypes.REGISTER:
-      return NavigationStateUtils.reset(state, [{key: Constants.HOME_SCENE}], 0);
+    // not used...
+      //case RegistrationActionTypes.REGISTER:
+      //return NavigationStateUtils.reset(state, [{key: Constants.HOME_SCENE}], 0);
     default:
       return state;
   }

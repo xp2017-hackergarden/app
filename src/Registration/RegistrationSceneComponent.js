@@ -9,7 +9,7 @@ class RegistrationSceneComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      email: this.props.email,
       password: '',
       login: true,
       hidePassword: true,
@@ -103,7 +103,6 @@ class RegistrationSceneComponent extends Component {
 
     return (
       <View style={CommonStyles.contentContainer}>
-
         <View style={CommonStyles.headerContent}>
 
           <View style={CommonStyles.headerLeft}>
@@ -149,6 +148,7 @@ class RegistrationSceneComponent extends Component {
 }
 
 RegistrationSceneComponent.propTypes = {
+  email: React.PropTypes.string,
   register: React.PropTypes.func.isRequired,
   login: React.PropTypes.func.isRequired,
 };

@@ -54,6 +54,7 @@ let Actions = {
       function (response) {
         dispatch(that.storeTokenToState(response.data.response))
         that.storeTokenToStorage(response.data.response)
+        dispatch(that.storeEmailToState(email));
         dispatch(navigationActions.jumpTo('homeScene'));
       }
     ).catch(

@@ -13,13 +13,15 @@ const WelcomeText = styled.Text`
 class HomeSceneComponent extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      email: this.props.email
+    };
   }
 
   render() {
     return (
       <View style={CommonStyles.contentContainer}>
-        <WelcomeText>Welcome!</WelcomeText>
+        <WelcomeText>Welcome!{this.props.email}</WelcomeText>
         <Button
           onPress={this.props.unregister}
           title="Unregister"
@@ -32,7 +34,7 @@ class HomeSceneComponent extends Component {
 }
 
 HomeSceneComponent.propTypes = {
-  name: React.PropTypes.string,
+  email: React.PropTypes.string,
   unregister: React.PropTypes.func.isRequired
 };
 

@@ -20,6 +20,7 @@ let Actions = {
       function (response) {
         dispatch(that.storeEmailToState(email));
         ToastAndroid.showWithGravity('Email has been sent to ' + email + '.', ToastAndroid.SHORT, ToastAndroid.CENTER)
+
       }
     ).catch(function (error) {
       if (error.response.data.detail == 'Email address already registered.') {

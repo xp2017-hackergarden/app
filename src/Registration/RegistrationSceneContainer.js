@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Actions from './RegistrationActions';
-import WelcomeSceneComponent from './RegistrationSceneComponent';
+import RegistrationSceneComponent from './RegistrationSceneComponent';
 
 let mapStateToProps = () => ({});
 
@@ -9,4 +9,4 @@ let mapDispatchToProps = dispatch => ({
   login: (name, password, deviceToken) => dispatch(Actions.handleLogin(name, password, deviceToken))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(WelcomeSceneComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationSceneComponent);

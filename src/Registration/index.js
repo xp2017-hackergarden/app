@@ -1,7 +1,7 @@
 import Actions from './RegistrationActions';
 import ActionTypes from './RegistrationActionTypes';
 import Reducers from './RegistrationReducer';
-import WelcomeSceneContainer from './RegistrationSceneContainer';
+import RegistrationSceneContainer from './RegistrationSceneContainer';
 
 export {Actions, ActionTypes, Reducers};
-export default WelcomeSceneContainer;
+export default RegistrationSceneContainer;

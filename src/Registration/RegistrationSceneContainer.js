@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Actions from './RegistrationActions';
-import WelcomeSceneComponent from './WelcomeSceneComponent';
+import WelcomeSceneComponent from './RegistrationSceneComponent';
 
 let mapStateToProps = () => ({});
 

@@ -25,7 +25,7 @@ class AppNavigation extends Component {
         sceneContent = <Splash />;
         break;
       default:
-        sceneContent = <Home />;
+        sceneContent = <Registration />;
     }
     return sceneContent;
   }

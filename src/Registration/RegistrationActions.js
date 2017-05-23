@@ -59,7 +59,9 @@ let Actions = {
       }
     ).catch(
       function (error) {
-        if (error && error.response.data.response === 'User does not exist') {
+        if (error && !error.response) {
+          ToastAndroid.showWithGravity('Network error', ToastAndroid.SHORT, ToastAndroid.CENTER);
+        } else if (error && error.response.data.response === 'User does not exist') {
           ToastAndroid.showWithGravity('User does not exist', ToastAndroid.SHORT, ToastAndroid.CENTER);
         } else if (error && error.response.data.response === 'Wrong password') {
           ToastAndroid.showWithGravity('Wrong password', ToastAndroid.SHORT, ToastAndroid.CENTER);

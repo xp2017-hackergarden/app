@@ -88,18 +88,23 @@ exports[`AppNavigationComponent renders correctly for home 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
-              Object {
-                "color": "#bfd730",
-                "fontSize": 20,
-                "textAlign": "center",
-              }
+              Array [
+                Object {
+                  "color": "#bfd730",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                },
+                undefined,
+              ]
             }
           >
-            Welcome!
+            Welcome
+            
+            
           </Text>
           <View
             accessibilityComponentType="button"
-            accessibilityLabel="Press this button to unregister"
+            accessibilityLabel="Press this button to logout"
             accessibilityTraits={
               Array [
                 "button",
@@ -148,7 +153,7 @@ exports[`AppNavigationComponent renders correctly for home 1`] = `
                   ]
                 }
               >
-                Unregister
+                Logout
               </Text>
             </View>
           </View>
@@ -398,7 +403,7 @@ exports[`AppNavigationComponent renders correctly for registration 1`] = `
                 <TextInput
                   onChangeText={[Function]}
                   placeholder="Email"
-                  value=""
+                  value={undefined}
                 />
                 <TextInput
                   onChangeText={[Function]}

@@ -1,23 +1,32 @@
 import React, {Component} from 'react';
-import {View, Text, Button, AsyncStorage} from 'react-native';
+import {View, Button} from 'react-native';
 import {Styles as CommonStyles, Colors} from '../Common';
-import Styles from './HomeSceneStyles';
+import styled from 'styled-components/native';
+
+const WelcomeText = styled.Text`
+    text-align: center;
+    fontSize: 20;
+    color: ${Colors.PRIMARY}
+    `;
+
 
 class HomeSceneComponent extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      email: this.props.email
+    };
   }
 
   render() {
     return (
       <View style={CommonStyles.contentContainer}>
-        <Text style={Styles.welcomeText}>Welcome!</Text>
+        <WelcomeText>Welcome{"\n"}{this.props.email}</WelcomeText>
         <Button
-          onPress={this.props.unregister}
-          title="Unregister"
+          onPress={this.props.logout}
+          title="Logout"
           color={Colors.PRIMARY}
-          accessibilityLabel="Press this button to unregister"
+          accessibilityLabel="Press this button to logout"
         />
       </View>
     );
@@ -25,8 +34,8 @@ class HomeSceneComponent extends Component {
 }
 
 HomeSceneComponent.propTypes = {
-  name: React.PropTypes.string,
-  unregister: React.PropTypes.func.isRequired
+  email: React.PropTypes.string,
+  logout: React.PropTypes.func.isRequired
 };
 
 export default HomeSceneComponent;

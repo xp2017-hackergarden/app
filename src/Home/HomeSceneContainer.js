@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
 import Actions from './HomeActions';
-import WelcomeSceneComponent from './HomeSceneComponent';
+import HomeSceneComponent from './HomeSceneComponent';
 
 let mapStateToProps = state => ({
   email: state.registration.email
 });
 
 let mapDispatchToProps = dispatch => ({
-  unregister: () => dispatch(Actions.unregister())
+  logout: () => dispatch(Actions.logout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(WelcomeSceneComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeSceneComponent);

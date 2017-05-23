@@ -1,5 +1,3 @@
-let ActionTypes = {
-  UNREGISTER: 'HOME_UNREGISTER'
-};
+let ActionTypes = {};
 
 export default ActionTypes;

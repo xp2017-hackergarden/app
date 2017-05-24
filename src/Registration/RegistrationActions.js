@@ -75,7 +75,7 @@ let Actions = {
   storeTokenToState: function (token) {
     return {
       type: ActionTypes.STORE_TOKEN_TO_STATE,
-      registrationToken: token
+      authToken: token
     };
   },
   storeTokenToStorage: function (token) {

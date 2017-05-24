@@ -24,11 +24,26 @@ class RegistrationSceneComponent extends Component {
     });
   }
   _onRegister() {
+    if(this.state.email) {
+      this.setState({email: this.state.email.trim()});
+    }
+    if(this._validateEmail(this.state.email)){
+      this.props.register(this.state.email);
+    } else {
+      this._nonValidEmail();
+    }
     this.props.register(this.state.email);
   }
 
   _onLogin() {
-    this.props.login(this.state.email.trim(), this.state.password, this.state.deviceToken);
+    if(this.state.email) {
+      this.setState({email: this.state.email.trim()});
+    }
+    if(this._validateEmail(this.state.email)){
+      this.props.login(this.state.email, this.state.password, this.state.deviceToken);
+    } else {
+      this._nonValidEmail();
+    }
   }
 
   _toggleHidePassword() {
@@ -38,10 +53,10 @@ class RegistrationSceneComponent extends Component {
 
   }
   _validateEmail = (email) => {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   };
-  _nonValidatedEmail(){
+  _nonValidEmail(){
     ToastAndroid.showWithGravity('Enter valid email address', ToastAndroid.SHORT, ToastAndroid.CENTER);
   }
   render() {
@@ -53,19 +68,6 @@ class RegistrationSceneComponent extends Component {
         onChangeText={(email) => this.setState({email})}
         value={this.state.email}/>;
 
-    let validated = this._validateEmail(this.state.email) ?
-      <Button
-        onPress={this._onRegister.bind(this)}
-        title="Register"
-        color={Colors.PRIMARY}
-        accessibilityLabel="Press this button to Register"
-      />
-      :
-      <Button
-        onPress={this._nonValidatedEmail}
-        title="Register"
-        color={Colors.PRIMARY}
-      />
     let loginOrRegister = this.state.login ?
       <View>
 
@@ -75,7 +77,7 @@ class RegistrationSceneComponent extends Component {
           placeholder="Password"
           secureTextEntry={this.state.hidePassword}
           onChangeText={(password) => this.setState({password})}
-          value={this.state.password}></TextInput>
+          value={this.state.password}/>
 
         <CheckBox
           style={CommonStyles.checkBox}
@@ -98,7 +100,12 @@ class RegistrationSceneComponent extends Component {
 
         { emailInput }
 
-        {validated}
+        <Button
+          onPress={this._onRegister.bind(this)}
+          title="Register"
+          color={Colors.PRIMARY}
+          accessibilityLabel="Press this button to Register"
+        />
       </View>;
 
     return (

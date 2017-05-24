@@ -48,8 +48,8 @@ let Actions = {
       querystring.stringify({ username: email, password: password, fcm_registration_id: deviceToken }),
     ).then(
       response => {
-        dispatch(that.storeTokenToState(response.data.response))
-        that.storeTokenToStorage(response.data.response)
+        dispatch(that.storeTokenToState(response.data.response));
+        that.storeTokenToStorage(response.data.response);
         dispatch(that.storeEmailToState(email));
         dispatch(navigationActions.jumpTo(Constants.HOME_SCENE));
       }
@@ -57,12 +57,8 @@ let Actions = {
       error => {
         if (error && !error.response) {
           ToastAndroid.showWithGravity('Network error', ToastAndroid.SHORT, ToastAndroid.CENTER);
-        } else if (error && error.response.data.response === 'User does not exist') {
-          ToastAndroid.showWithGravity('User does not exist', ToastAndroid.SHORT, ToastAndroid.CENTER);
-        } else if (error && error.response.data.response === 'Wrong password') {
-          ToastAndroid.showWithGravity('Wrong password', ToastAndroid.SHORT, ToastAndroid.CENTER);
-        } else if (error && error.response.data.response === 'Could not save FCM token') {
-          ToastAndroid.showWithGravity('Could not activate the app', ToastAndroid.SHORT, ToastAndroid.CENTER);
+        } else {
+          ToastAndroid.showWithGravity(error.response.data.response, ToastAndroid.SHORT, ToastAndroid.CENTER);
         }
       }
     );

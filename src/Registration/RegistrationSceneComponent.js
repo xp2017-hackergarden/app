@@ -24,12 +24,21 @@ class RegistrationSceneComponent extends Component {
     });
   }
   _onRegister() {
-    this.setState({ email: this.state.email.trim() });
+    if(this.state.email) {
+      this.setState({email: this.state.email.trim()});
+    }
+    if(this._validateEmail(this.state.email)){
+      this.props.register(this.state.email);
+    } else {
+      this._nonValidEmail();
+    }
     this.props.register(this.state.email);
   }
 
   _onLogin() {
-    this.setState({ email: this.state.email.trim() });
+    if(this.state.email) {
+      this.setState({email: this.state.email.trim()});
+    }
     if(this._validateEmail(this.state.email)){
       this.props.login(this.state.email, this.state.password, this.state.deviceToken);
     } else {
@@ -59,19 +68,6 @@ class RegistrationSceneComponent extends Component {
         onChangeText={(email) => this.setState({email})}
         value={this.state.email}/>;
 
-    let validatedRegister = this._validateEmail(this.state.email) ?
-      <Button
-        onPress={this._onRegister.bind(this)}
-        title="Register"
-        color={Colors.PRIMARY}
-        accessibilityLabel="Press this button to Register"
-      />
-      :
-      <Button
-        onPress={this._nonValidEmail}
-        title="Register"
-        color={Colors.PRIMARY}
-      />
     let loginOrRegister = this.state.login ?
       <View>
 
@@ -104,7 +100,12 @@ class RegistrationSceneComponent extends Component {
 
         { emailInput }
 
-        {validatedRegister}
+        <Button
+          onPress={this._onRegister.bind(this)}
+          title="Register"
+          color={Colors.PRIMARY}
+          accessibilityLabel="Press this button to Register"
+        />
       </View>;
 
     return (

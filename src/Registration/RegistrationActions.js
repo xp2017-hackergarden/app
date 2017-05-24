@@ -4,6 +4,7 @@ import navigationActions from '../AppNavigation/AppNavigationActions';
 import {ToastAndroid, AsyncStorage} from 'react-native';
 import {Config} from '../Common';
 import Constants from '../AppNavigation/AppNavigationConstants';
+import querystring from 'querystring';
 
 let Actions = {
   registerEmail: function (email) {
@@ -14,21 +15,19 @@ let Actions = {
   },
   register: function (email, dispatch) {
     const that = this;
-    const data = new FormData();
-    data.append('email', email);
 
-    return axios.post(Config.API_PREFIX + 'users/', data).then(
-      function (response) {
+    return axios.post(Config.API_PREFIX + 'users/',
+      querystring.stringify({ 'email': email }))
+      .then(
+      response => {
         dispatch(that.storeEmailToState(email));
         ToastAndroid.showWithGravity('Email has been sent to ' + email + '.', ToastAndroid.SHORT, ToastAndroid.CENTER)
-
-      }
-    ).catch(function (error) {
-      if (error.response.data.detail == 'Email address already registered.') {
-        ToastAndroid.showWithGravity(error.response.data.detail, ToastAndroid.SHORT, ToastAndroid.CENTER);
-      }
-      return 'Server call failed';
-    });
+      }).catch(
+        error => {
+          if (error.response.data.detail === 'Email address already registered.') {
+            ToastAndroid.showWithGravity(error.response.data.detail, ToastAndroid.SHORT, ToastAndroid.CENTER);
+          }
+        });
   },
 
   storeEmailToState: function (email) {
@@ -45,20 +44,17 @@ let Actions = {
   },
   login: function (email, password, deviceToken, dispatch) {
     const that = this;
-    const data = new FormData();
-    data.append('username', email);
-    data.append('password', password);
-    data.append('fcm_registration_id', deviceToken)
-    return axios.post(Config.API_PREFIX + 'activate-mobile-app/', data
+    return axios.post(Config.API_PREFIX + 'activate-mobile-app/',
+      querystring.stringify({ username: email, password: password, fcm_registration_id: deviceToken }),
     ).then(
-      function (response) {
+      response => {
         dispatch(that.storeTokenToState(response.data.response))
         that.storeTokenToStorage(response.data.response)
         dispatch(that.storeEmailToState(email));
         dispatch(navigationActions.jumpTo(Constants.HOME_SCENE));
       }
     ).catch(
-      function (error) {
+      error => {
         if (error && !error.response) {
           ToastAndroid.showWithGravity('Network error', ToastAndroid.SHORT, ToastAndroid.CENTER);
         } else if (error && error.response.data.response === 'User does not exist') {
@@ -70,7 +66,6 @@ let Actions = {
         }
       }
     );
-
   },
   storeTokenToState: function (token) {
     return {

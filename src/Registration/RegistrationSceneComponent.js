@@ -28,7 +28,7 @@ class RegistrationSceneComponent extends Component {
   }
 
   _onLogin() {
-    this.props.login(this.state.email, this.state.password, this.state.deviceToken);
+    this.props.login(this.state.email.trim(), this.state.password, this.state.deviceToken);
   }
 
   _toggleHidePassword() {

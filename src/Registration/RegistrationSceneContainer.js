@@ -8,7 +8,7 @@ let mapStateToProps = state => ({
 
 let mapDispatchToProps = dispatch => ({
   register: email => dispatch(Actions.registerEmail(email)),
-  login: (name, password, deviceToken) => dispatch(Actions.handleLogin(name, password, deviceToken))
+  login: (email, password, deviceToken) => dispatch(Actions.handleLogin(email, password, deviceToken))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegistrationSceneComponent);
